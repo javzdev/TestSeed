@@ -1,0 +1,40 @@
+name: Bug report / Reporte de error
+description: Something does not work as documented / Algo no funciona como dice la documentación
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ No pegues datos personales reales. / Do not paste real personal data.
+        Para vulnerabilidades usa SECURITY.md. / For vulnerabilities see SECURITY.md.
+  - type: textarea
+    id: repro
+    attributes:
+      label: Código mínimo para reproducir / Minimal reproduction
+      description: Incluye locale y seed. / Include locale and seed.
+      render: python
+      placeholder: |
+        from testseed import TestSeed
+        seed = TestSeed(locale="es_CR", seed=123)
+        print(seed.user())
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado vs. obtenido / Expected vs. actual
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versiones / Versions
+      placeholder: "testseed 0.1.0, Python 3.12, Windows 11"
+    validations:
+      required: true
+  - type: checkboxes
+    id: repro-break
+    attributes:
+      label: Tipo / Kind
+      options:
+        - label: La misma semilla dio datos distintos en la misma versión / Same seed gave different data on the same version
