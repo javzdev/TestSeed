@@ -21,15 +21,18 @@ tests, demos, desarrollo local y cursos. Hace tres promesas concretas:
 Requiere Python 3.11 o superior.
 
 ```bash
-# Desde el código fuente (modo desarrollo)
+pip install testseed
+```
+
+Desde el código fuente (modo desarrollo):
+
+```bash
 git clone https://github.com/javzdev/TestSeed.git
 cd TestSeed
 python -m venv .venv
 # Windows: .venv\Scripts\activate    |    Linux/macOS: source .venv/bin/activate
 pip install -e ".[dev]"
 ```
-
-> Todavía no está publicado en PyPI. Cuando lo esté: `pip install testseed`.
 
 ## Uso rápido
 

@@ -61,5 +61,5 @@ Orden tentativo según el feedback esperado. Cada punto requiere su propio issue
 - [x] El README (ES + EN) explica instalación, uso, limitaciones y privacidad
 - [x] Licencia MIT, CONTRIBUTING, CODE_OF_CONDUCT, CHANGELOG, SECURITY y plantillas de issues y PR
 - [x] CI básica (lint, tipos, pruebas en 3 SO, build)
-- [x] Paquete preparado para PyPI (`python -m build` + `twine check` pasan); **no publicado**
-- [ ] Pendiente para quien mantenga el proyecto: crear el repo en GitHub, verificar el nombre en PyPI y configurar Trusted Publishing
+- [x] Paquete preparado para PyPI (`python -m build` + `twine check` pasan); publicado en PyPI como 0.1.0
+- [x] Repo en GitHub, Trusted Publishing configurado y v0.1.0 publicada
