@@ -1,0 +1,32 @@
+name: Feature request / Propuesta
+description: Propose a new generator, locale or capability / Propón un generador, locale o capacidad
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema que resuelve / Problem it solves
+      description: Describe tu caso de uso real antes que la solución. / Describe your real use case before the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: API propuesta / Proposed API
+      render: python
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacidad / Privacy
+      description: |
+        ¿Cómo evitamos que el dato parezca real (documentos, tarjetas, teléfonos)?
+        How do we keep the value clearly fictitious (IDs, cards, phones)?
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: Revisé el roadmap en docs/ROADMAP.md / I checked docs/ROADMAP.md
+          required: true

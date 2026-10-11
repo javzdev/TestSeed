@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "testseed"
+dynamic = ["version"]
+description = "Realistic, safe and reproducible synthetic data for software testing."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "JAVZDEV and TestSeed contributors" }]
+keywords = ["testing", "synthetic-data", "fake-data", "fixtures", "seed", "reproducible"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed",
+]
+# No runtime dependencies on purpose: see docs/DESIGN.md.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "build>=1.2",
+    "twine>=5.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/javzdev/TestSeed"
+Documentation = "https://github.com/javzdev/TestSeed#readme"
+Issues = "https://github.com/javzdev/TestSeed/issues"
+Changelog = "https://github.com/javzdev/TestSeed/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/testseed/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/testseed"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "examples", "docs", "README*.md", "CHANGELOG.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+addopts = ["-ra", "--strict-markers", "--strict-config", "--doctest-modules", "--import-mode=importlib"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+source = ["testseed"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 95
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "SIM", "RUF", "PT", "C4", "PIE", "RET"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/testseed/locales/es_CR.py" = ["N999"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src", "tests", "examples"]
